@@ -20,9 +20,9 @@ pipeline {
 
             steps {
                 script {
-                    if (params.Collection) {
-                        sh 'newman run collection.json'
-                     } 
+                    // if (params.Collection) {
+                    //     sh 'newman run collection.json'
+                    //  } 
 
                     switch(params.Environnement) {
                         case 'Test':
