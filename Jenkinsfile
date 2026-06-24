@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     if (params.Collection) {
-                        sh 'newman run Collection.json'
+                        sh 'newman run collection.json'
                      } 
 
                     if (params.Environnement == 'Test') {
