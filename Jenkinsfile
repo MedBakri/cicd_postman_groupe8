@@ -24,18 +24,37 @@ pipeline {
                         sh 'newman run collection.json'
                      } 
 
-                    if (params.Environnement == 'Test') {
-                        sh 'newman run Collection3.json -e envs/test2_env.json'
-                    } else if (params.Environnement == 'E2E') {
-                        sh 'newman run Collection2.json -e envs/e2e_env.json'
-                    } else if (params.Environnement == 'Preprod') {
-                        sh 'newman run Collection2.json -e envs/preprod2_env.json'
-                    } else {
-                        sh 'newman run collection.json'
-                        sh 'newman run Collection3.json -e envs/test2_env.json'
-                        sh 'newman run Collection2.json -e envs/e2e_env.json'
-                        sh 'newman run Collection2.json -e envs/preprod2_env.json'
+                    switch(params.Environnement) {
+                        case 'Test':
+                                    sh 'newman run Collection3.json -e envs/test2_env.json'
+                                    break
+                        case 'E2E':
+                                    sh 'newman run Collection2.json -e envs/e2e_env.json'
+                                    break
+                        case 'Preprod':
+                                    sh 'newman run Collection2.json -e envs/preprod2_env.json'
+                                    break
+                        default :
+                                    sh 'newman run collection.json'
+                                    sh 'newman run Collection3.json -e envs/test2_env.json'
+                                    sh 'newman run Collection2.json -e envs/e2e_env.json'
+                                    sh 'newman run Collection2.json -e envs/preprod2_env.json'
+                                    break
                     }
+
+                    // if (params.Environnement == 'Test') {
+                    //     sh 'newman run Collection3.json -e envs/test2_env.json'
+                    // } else if (params.Environnement == 'E2E') {
+                    //     sh 'newman run Collection2.json -e envs/e2e_env.json'
+                    // } else if (params.Environnement == 'Preprod') {
+                    //     sh 'newman run Collection2.json -e envs/preprod2_env.json'
+                    // } else {
+                    //     sh 'newman run collection.json'
+                    //     sh 'newman run Collection3.json -e envs/test2_env.json'
+                    //     sh 'newman run Collection2.json -e envs/e2e_env.json'
+                    //     sh 'newman run Collection2.json -e envs/preprod2_env.json'
+                    // }
+
                 }
             }
         }
