@@ -10,7 +10,7 @@ pipeline {
     parameters {
         booleanParam(name: 'Collection', defaultValue: true, description: 'Lancer la collection')
 
-        choice(name: 'Environnement', choices: ['Tout', E2E', 'Preprod', 'Test'], description: 'Choisir l\'environnement')
+        choice(name: 'Environnement', choices: ['Tout', 'E2E', 'Preprod', 'Test'], description: 'Choisir l\'environnement')
 
     }
 
