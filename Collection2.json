@@ -70,7 +70,6 @@
               "    //Variable de collection\r",
               "    let id_res = body_res.id; // recuperer l'id de l'objet créé pour l'utiliser dans d'autres tests.\r",
               "    pm.collectionVariables.set(\"id_objet\", id_res)\r",
-              "    pm.collectionVariables.set(\"price_objet\", price_req)\r",
               "    pm.collectionVariables.set(\"cpu_model_objet\", cpu_model_req)\r",
               "})"
             ],
@@ -119,6 +118,24 @@
         }
       },
       "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "year_random",
+      "value": ""
+    },
+    {
+      "key": "price_random",
+      "value": ""
+    },
+    {
+      "key": "id_objet",
+      "value": ""
+    },
+    {
+      "key": "cpu_model_objet",
+      "value": ""
     }
   ]
 }
