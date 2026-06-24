@@ -19,16 +19,18 @@ pipeline {
         stage('lancer le test') {
 
             steps {
-                if (params.Collection) {
-                    sh 'newman run Collection.json'
-                } 
-                
-                if (params.Environnement == 'Test') {
-                    sh 'newman run Collection3.json --e envs/test2_env.json'
-                } else if (params.Environnement == 'E2E') {
-                    sh 'newman run Collection2.json --e envs/e2e_env.json'
-                } else {
-                    sh 'newman run Collection2.json --e envs/preprod2_env.json'
+                script {
+                    if (params.Collection) {
+                        sh 'newman run Collection.json'
+                     } 
+
+                    if (params.Environnement == 'Test') {
+                        sh 'newman run Collection3.json --e envs/test2_env.json'
+                    } else if (params.Environnement == 'E2E') {
+                        sh 'newman run Collection2.json --e envs/e2e_env.json'
+                    } else {
+                        sh 'newman run Collection2.json --e envs/preprod2_env.json'
+                    }
                 }
             }
         }
