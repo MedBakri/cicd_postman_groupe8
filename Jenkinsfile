@@ -21,7 +21,9 @@ pipeline {
             steps {
                 if (params.Collection) {
                     sh 'newman run Collection.json'
-                } else if (params.Environnement == 'Test') {
+                } 
+                
+                if (params.Environnement == 'Test') {
                     sh 'newman run Collection3.json --e envs/test2_env.json'
                 } else if (params.Environnement == 'E2E') {
                     sh 'newman run Collection2.json --e envs/e2e_env.json'
