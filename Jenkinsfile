@@ -35,7 +35,7 @@ pipeline {
                                     sh 'newman run Collection2.json -e envs/preprod2_env.json'
                                     break
                         default :
-                                    //sh 'newman run collection.json'
+                                    sh 'newman run collection.json'
                                     sh 'newman run Collection3.json -e envs/test2_env.json'
                                     sh 'newman run Collection2.json -e envs/e2e_env.json'
                                     sh 'newman run Collection2.json -e envs/preprod2_env.json'
