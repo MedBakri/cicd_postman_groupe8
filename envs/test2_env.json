@@ -1,0 +1,16 @@
+{
+	"id": "8eaf5a88-4d7f-4cb5-8344-67c6a453cfdb",
+	"name": "test2",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://api.practicesoftwaretesting.com",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-06-24T08:55:39.884Z",
+	"_postman_exported_using": "Postman/11.100.0"
+}

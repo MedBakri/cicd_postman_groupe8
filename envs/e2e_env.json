@@ -1,0 +1,16 @@
+{
+	"id": "d624e109-c1f7-47eb-a87e-4501c5438062",
+	"name": "e2e",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://api.restful-api.dev",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-06-24T08:57:47.281Z",
+	"_postman_exported_using": "Postman/11.100.0"
+}

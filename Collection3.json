@@ -1,0 +1,92 @@
+{
+  "info": {
+    "_postman_id": "d2230bcb-d150-49b1-8f7c-e007c6dfe06a",
+    "name": "Collection3",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30253613"
+  },
+  "item": [
+    {
+      "name": "creer brand",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Verifier le code status\", function(){\r",
+              "    let code_attendu = 201;\r",
+              "    let code_obtenu = pm.response.code;\r",
+              "    //assertions\r",
+              "    pm.expect(code_attendu).equal(code_obtenu);\r",
+              "})\r",
+              "\r",
+              "\r",
+              "pm.test(\"Verifier les donnees envoyees avec la reponse\", function(){\r",
+              "    // Recuperer ce que j'ai envoye (body request)\r",
+              "    let body_req = JSON.parse(pm.request.body.raw)\r",
+              "    let name_req = body_req.name\r",
+              "    let slug_req = body_req.slug\r",
+              "\r",
+              "    // Recuperer body response\r",
+              "    let body_res = pm.response.json()\r",
+              "    let name_res = body_res.name\r",
+              "    let slug_res = body_res.slug\r",
+              "\r",
+              "    //Faire les assertions (verification)\r",
+              "    pm.expect(name_req).equal(name_res)\r",
+              "    pm.expect(slug_req).equal(slug_res)\r",
+              "\r",
+              "    //Variable de collection\r",
+              "    let id_res = body_res.id;\r",
+              "    pm.collectionVariables.set(\"id_objet\", id_res)\r",
+              "})"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"{{$randomProductName}}\",\r\n  \"slug\": \"{{$randomLoremSlug}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/brands",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "brands"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "id_objet",
+      "value": ""
+    }
+  ]
+}
